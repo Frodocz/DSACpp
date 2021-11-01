@@ -1,2 +1,2 @@
 # DSACpp
-Personal implementations of Data Structures and Algorithms in C++. 
+Personal implementations of **Data Structures and Algorithms (DSA)** in C++. 
