@@ -9,6 +9,7 @@ set(VECTOR_SRC
         Vector_Selectionsort.h
         Vector_Insertionsort.h
         Vector_Sort.h
+        Vector_Search_Binary.h
         main.cpp)
 
 add_executable(vector ${VECTOR_SRC})

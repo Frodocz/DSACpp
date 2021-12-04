@@ -51,7 +51,7 @@ public:
     bool empty() const { return !_size; }
     Rank find(const T &e) const { return find(e, 0, _size); } // find e in unsorted vector
     Rank find(const T &e, Rank lo, Rank hi) const { return find(e, lo, hi); } // find e in unsorted vector interval v[lo, hi)
-    Rank search(const T &e) const { return (0 >= _size) ? -1 : search(e, 0, _size); } // binary search in sorted vector
+    Rank search(const T &e) const { return (0 >= _size) ? -1 : search(e, 0, _size); } // binary search in sorted vector, rightmost
     Rank search(const T &e, Rank lo, Rank hi) const; // search in sorted vector interval v[lo, hi)
     /* Writable Methods */
     T& operator[] (Rank r); // override operator [], find reference of element by rank

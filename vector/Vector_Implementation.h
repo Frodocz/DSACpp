@@ -19,5 +19,6 @@
 #include "Vector_Bubblesort.h"
 #include "Vector_Selectionsort.h"
 #include "Vector_Insertionsort.h"
+#include "Vector_Search_Binary.h"
 
 #endif //DSACPP_VECTOR_IMPLEMENTATION_H
