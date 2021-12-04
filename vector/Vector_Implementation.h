@@ -2,7 +2,6 @@
  * Data Structures and Algorithms C++ IMPLEMENTATIONS
  *
  * Vector: A sequence container representing arrays that can change in size.
- * Testing Vector functionalities
  *
  * https://en.wikipedia.org/wiki/Vector#Computer_science
  *
@@ -10,21 +9,15 @@
  * @github Frodocz
  *
  ******************************************************************************/
-#include<iostream>
-using namespace std;
 
-#include "Vector.h"
+#ifndef DSACPP_VECTOR_IMPLEMENTATION_H
+#define DSACPP_VECTOR_IMPLEMENTATION_H
 
-int main(int argc, char* argv[]) {
-    cout << "Testing Vector" << endl;
-    Vector<int> v(10, 3, 2);
-    cout << v.size() << endl;
+#include "Vector_Operators.h"
+#include "Vector_CopyFrom.h"
+#include "Vector_Sort.h"
+#include "Vector_Bubblesort.h"
+#include "Vector_Selectionsort.h"
+#include "Vector_Insertionsort.h"
 
-    int A[10] = {1, 2, 9, 6, 22, -8, 993, 12, 22, 6};
-    Vector<int> v2(A, 10);
-    v2.sort();
-
-    for (auto i = 0; i < v2.size(); ++i)
-        cout << v2[i] << " ";
-    return 0;
-}
+#endif //DSACPP_VECTOR_IMPLEMENTATION_H

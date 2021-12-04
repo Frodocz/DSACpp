@@ -23,11 +23,12 @@ protected:
     void copyFrom(const T *A, Rank lo, Rank hi); // copy from data of interval A[lo, hi)
     void expand(); // expand when capacity not enough
     void shrink(); // shrink the capacity when load factor is too small
-    bool bubble (Rank lo, Rank hi); // scan and swap
-    void bubbleSort (Rank lo, Rank hi); // bubble sort algorithm (basic version)
-    void bubbleSortEarlyStop (Rank lo, Rank hi); // bubble sort algorithm (early stop)
-    Rank maxItem (Rank lo, Rank hi); // find largest element in the vector
-    void selectionSort ( Rank lo, Rank hi ); // selection sort algorithm
+    void bubbleSort(Rank lo, Rank hi); // scan and swap bubble sort algorithm (basic version)
+    void bubbleSortEarlyStop(Rank lo, Rank hi); // scan and swap bubble sort algorithm (early stop)
+    void bubbleSortJump(Rank lo, Rank hi); // scan and swap bubble sort algorithm (jump version)
+    Rank maxItem(Rank lo, Rank hi); // find largest element in the vector
+    void selectionSort(Rank lo, Rank hi); // selection sort algorithm
+    void insertionSort(Rank lo, Rank hi); // insertion sort algorithm
     void merge(Rank lo, Rank mi, Rank hi); // merge algorithm, [lo, mi) and [mi, hi) to be sorted，lo < mi < hi
     void mergeSort(Rank lo, Rank hi); // merge sort algorithm
     Rank partition(Rank lo, Rank hi); // construct pivot algorithm
@@ -39,10 +40,10 @@ public:
         _elem = new T[_capacity = c];
         for (_size = 0; _size < s; _elem[_size++] = v);
     }
-    Vector(const T *A, int n) { copyFrom(A, 0, n); }
-    Vector(const T *A, Rank lo, Rank hi) { copyFrom(A, lo, hi); }
-    Vector(const Vector<T> &V) { copyFrom(V._elem, 0, V._size); }
-    Vector(const Vector<T> &V, Rank lo, Rank hi) { copyFrom(V._elem, lo, hi); }
+    Vector(const T *A, int n) { copyFrom(A, 0, n); } // Copy the whole array A
+    Vector(const T *A, Rank lo, Rank hi) { copyFrom(A, lo, hi); } // Copy array A of range [lo, hi)
+    Vector(const Vector<T> &V) { copyFrom(V._elem, 0, V._size); } // Copy the whole vector V
+    Vector(const Vector<T> &V, Rank lo, Rank hi) { copyFrom(V._elem, lo, hi); } // Copy the whole vector V of range [lo, hi)
     /* Destructors */
     ~Vector() { delete [] _elem; } // free internal memory space
     /* Read-only Methods */
@@ -70,5 +71,7 @@ public:
     void traverse ( void (* ) ( T& ) ); // Traversal using function pointer (Read-only or locally modification)
     template <typename VST> void traverse ( VST& ); // Traversal using function object (globally modification)
 };
+
+#include "Vector_Implementation.h"
 
 #endif //DSACPP_VECTOR_H
